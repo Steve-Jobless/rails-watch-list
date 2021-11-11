@@ -1,0 +1,20 @@
+<h1>Lists#show</h1>
+Show page!
+
+new_bookmark button
+<%= link_to "Add a movie", new_list_bookmark_path(@list) %>
+
+<h3>Movies</h3>
+  <ul>
+
+    <% @list.bookmarks.each do |bookmark| %>
+      <li><%= bookmark.movie.title %>/<%= bookmark.comment %>/ <%= link_to "delete", bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?'}  %>
+      <% end %></li>
+  </ul>
+
+
+<%#
+ :title
+   :overview
+     :poster_url
+ :rating %>
