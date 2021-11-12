@@ -1,39 +1,26 @@
 <div>
-  <div class="banner">
-    <div class="container pt-5">
-        <div class="text-container">
-          <h1>Watchlist</h1>
-          <h2> Add you favourite movies</h2>
-          <%= link_to "New list", new_list_path,  class:"btn btn-info btn-lg mt-5"%>
-        </div>
-
+ <div class="banner">
+  <div class="container pt-5 d-flex justify-content-between">
+    <div class="text-container">
+      <h1>Watchlist</h1>
+      <h2> Add you favourite movies</h2>
+      <%= link_to "New list", new_list_path,  class:"btn btn-info btn-lg mt-5"%>
+    </div>
+    <div class="banner-image-container" class="d-flex">
+      <%= image_tag "minions.png", class:"banner-image" %>
     </div>
   </div>
 </div>
 
 <div class="container">
   <h2 class="mt-2">The lists</h2>
-    <% @lists.each do |list| %>
-    <div class="d-flex">
-    <div>
-      <% if list.photo.attached?   %>
-        <%= cl_image_tag(list.photo.key,
-              width: 200, height: 150, crop: :fill) %>
-      <% end %>
-</div>
-<div>
-       <%= link_to list.name, list_path(list)  %>
-        <%= link_to "", list_path(list), method: :delete, data: { confirm: 'Are you sure?'}, class:"delete fas fa-backspace"  %>
-</div>
+      <div class="owl-carousel owl-theme mt-5 d-flex">
+        <% @lists.each do |list| %>
+          <div >
+            <div class="output-container" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(' <%= list.photo.attached? ? cl_image_path(list.photo.key, height: 300, crop: :fill) : "https://pngimg.com/uploads/minions/minions_PNG80.png" %>')">
+              <%= link_to list.name, list_path(list)  %> <%= link_to "", list_path(list), method: :delete, data: { confirm: 'Are you sure?'}, class:"delete fas fa-backspace"  %>
+            </div>
+          </div>
+         <% end %>
       </div>
-    <% end %>
-
-  <h2 class="mt-5">Le Wagon Selected</h2>
-  <div class="owl-carousel owl-theme mt-5">
-    <div class="img-carousel"> <%= image_tag "img1.png" %> </div>
-    <div class="img-carousel"> <%= image_tag "img2.png" %> </div>
-    <div class="img-carousel"> <%= image_tag "img3.png" %> </div>
-    <div class="img-carousel"> <%= image_tag "img4.png" %> </div>
-    <div class="img-carousel"> <%= image_tag "img5.png" %> </div>
-  </div>
 </div>
