@@ -1,5 +1,5 @@
 <div>
-  <div>
+  <div class="banner">
     <div class="container pt-5">
         <div class="text-container">
           <h1>Watchlist</h1>
@@ -14,15 +14,18 @@
 <div class="container">
   <h2 class="mt-2">The lists</h2>
     <% @lists.each do |list| %>
+    <div class="d-flex">
+    <div>
       <% if list.photo.attached?   %>
         <%= cl_image_tag(list.photo.key,
-              width: 400, height: 300, crop: :fill) %>
+              width: 200, height: 150, crop: :fill) %>
       <% end %>
-      <ul>
-        <li> <%= link_to list.name, list_path(list)  %>
+</div>
+<div>
+       <%= link_to list.name, list_path(list)  %>
         <%= link_to "", list_path(list), method: :delete, data: { confirm: 'Are you sure?'}, class:"delete fas fa-backspace"  %>
-        </li>
-      </ul>
+</div>
+      </div>
     <% end %>
 
   <h2 class="mt-5">Le Wagon Selected</h2>

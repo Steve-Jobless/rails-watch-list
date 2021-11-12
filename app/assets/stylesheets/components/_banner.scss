@@ -1,13 +1,21 @@
 .banner {
   height: 300px;
-  background-image: url("app/assets/images/banner.jpeg");
-  object-fit: cover;
-
+  background-image: url("banner.jpeg");
+  background-size: cover;
+  background-position-y: 50%;
+  h1{
+    color: blanchedalmond;
+    text-shadow: black;
+  }
+  h2{
+     color: blanchedalmond;
+    text-shadow: black;
+  }
 
 }
 
 body {
-  background-color: #B4FE98;
+  background-color: grey;
 }
 
 ul {
