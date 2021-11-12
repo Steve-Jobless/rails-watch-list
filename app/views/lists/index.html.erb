@@ -1,23 +1,33 @@
-<h1>Lists#index</h1>
-<% @lists.each do |list| %>
-<ul>
-  <li> <%= link_to list.name, list_path(list)  %> /<%= link_to "delete", list_path(list), method: :delete, data: { confirm: 'Are you sure?'}  %>
-  </li>
-</ul>
-
-
-<% end %>
-
-<div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Breakfast
+<div>
+  <div class="banner">
+    <div class="container pt-5">
+        <div class="text-container">
+          <h1>Watchlist</h1>
+          <h2> Add you favourite movies</h2>
+          <%= link_to "New list", new_list_path,  class:"btn btn-info btn-lg mt-5"%>
+        </div>
+    </div>
   </div>
+</div>
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
-    Lunch
-  </div>
+<div class="container">
+  <h2 class="mt-2">The lists</h2>
+    <% @lists.each do |list| %>
+      <ul>
+        <li> <%= link_to list.name, list_path(list)  %>
+        <%= link_to "", list_path(list), method: :delete, data: { confirm: 'Are you sure?'}, class:"delete fas fa-backspace"  %>
+        </li>
+      </ul>
+    <% end %>
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-    Dinner
+  <h2 class="mt-5">Le Wagon Selected</h2>
+  <div class="owl-carousel owl-theme mt-5">
+    <div> Your Content </div>
+    <div> Your Content </div>
+    <div> Your Content </div>
+    <div> Your Content </div>
+    <div> Your Content </div>
+    <div> Your Content </div>
+    <div> Your Content </div>
   </div>
 </div>

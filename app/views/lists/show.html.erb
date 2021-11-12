@@ -1,16 +1,22 @@
-<h1>Lists#show</h1>
-Show page!
+<div class="container mt-5">
+  <div>
+    <h1><%= @list.name %></h1>
 
-new_bookmark button
-<%= link_to "Add a movie", new_list_bookmark_path(@list) %>
+    <%= link_to "Add a movie", new_list_bookmark_path(@list), class:"btn btn-success btn-lg mt-2" %>
+    <%= link_to "Back", lists_path, class:"btn btn-success btn-lg mt-2"%>
+  </div>
 
-<h3>Movies</h3>
-  <ul>
+  <div class="mt-5">
+    <h3 >Movies</h3>
+      <ul>
+        <% @list.bookmarks.each do |bookmark| %>
+          <li><%= bookmark.movie.title %>/<%= bookmark.comment %>/ <%= link_to "delete", bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?'} %>
+          <% end %></li>
+    </ul>
+  </div>
+</div>
 
-    <% @list.bookmarks.each do |bookmark| %>
-      <li><%= bookmark.movie.title %>/<%= bookmark.comment %>/ <%= link_to "delete", bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?'}  %>
-      <% end %></li>
-  </ul>
+
 
 
 <%#

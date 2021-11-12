@@ -1,0 +1,35 @@
+.banner {
+  background-color: #FBF46D ;
+  height: 300px;
+}
+
+body {
+  background-color: #B4FE98;
+}
+
+ul {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+
+}
+
+ a{
+    text-decoration: none;
+    color: black;
+
+  }
+ a:hover {
+      color: black;
+      opacity: 80%;
+      font-size: 20px;
+      transition: 1s;
+
+    }
+.delete {
+        opacity: 20%;
+        color: black;
+      }
+.delete:hover {
+        color: #ff1818;
+      }
