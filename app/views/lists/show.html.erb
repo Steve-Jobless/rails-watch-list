@@ -11,6 +11,7 @@
       <ul>
         <% @list.bookmarks.each do |bookmark| %>
           <li><%= bookmark.movie.title %>/<%= bookmark.comment %>/ <%= link_to "delete", bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?'} %>
+
           <% end %></li>
     </ul>
   </div>
